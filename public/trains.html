@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Available Trains</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <h2>🚄 Search Trains</h2>
+    <form id="searchForm">
+      <input type="text" id="fromStation" placeholder="From Station" required>
+      <input type="text" id="toStation" placeholder="To Station" required>
+      <button type="submit">Search</button>
+    </form>
+
+    <h3>Available Trains</h3>
+    <div id="trainResults"></div>
+  </div>
+
+  <script>
+    const searchForm = document.getElementById('searchForm');
+
+    searchForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const from = document.getElementById('fromStation').value;
+      const to = document.getElementById('toStation').value;
+
+      const res = await fetch(`/api/trains?from=${from}&to=${to}`);
+      const trains = await res.json();
+
+      const resultDiv = document.getElementById('trainResults');
+      resultDiv.innerHTML = '';
+
+      if (trains.length === 0) {
+        resultDiv.innerHTML = '<p>No trains found for this route.</p>';
+        return;
+      }
+
+      trains.forEach(train => {
+        resultDiv.innerHTML += `
+          <div class="train-card">
+            <strong>${train.trainName} (${train.trainNumber})</strong><br>
+            ${train.from} → ${train.to}<br>
+            Departure: ${train.departureTime}, Arrival: ${train.arrivalTime}<br>
+            <button onclick="bookTrain('${train._id}')">Book</button>
+            <hr/>
+          </div>
+        `;
+      });
+    });
+
+    function bookTrain(trainId) {
+      window.location.href = `/book.html?trainId=${trainId}`;
+    }
+  </script>
+</body>
+</html>

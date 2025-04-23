@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Train Reservation Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="dashboard-container">
+    <header>
+      <h1>🚆 Train Reservation Dashboard</h1>
+      
+    </header>
+
+    <div class="cards">
+      <div class="card" onclick="location.href='book.html'">
+        <h3>🎫 Book Ticket</h3>
+        <p>Search trains and book your seat</p>
+      </div>
+      <div class="card" onclick="location.href='bookings.html'">
+        <h3>📃 My Bookings</h3>
+        <p>View or cancel your tickets</p>
+      </div>
+      <div class="card" onclick="location.href='trains.html'">
+        <h3>🚉 Available Trains</h3>
+        <p>See current train schedules</p>
+      </div>
+      <div class="card" onclick="location.href='admin.html'">
+        <h3>🛠 Admin Panel</h3>
+        <p>Manage trains and bookings</p>
+        
+      </div>
+
+    </div>
+    <br>
+    <button id="logoutBtn">Logout</button>
+  </div>
+
+  <script src="dashboard.js"></script>
+</body>
+</html>

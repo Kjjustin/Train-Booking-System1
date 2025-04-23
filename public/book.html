@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Book Train Ticket</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <h2>🎟️ Book Ticket</h2>
+    <div id="trainInfo"></div>
+
+    <form id="bookingForm">
+      <input type="date" id="travelDate" required>
+      <select id="classType" required>
+        <option value="">Select Class</option>
+        <option value="Sleeper">Sleeper</option>
+        <option value="AC">AC</option>
+        <option value="First Class">First Class</option>
+      </select>
+      <input type="number" id="seats" placeholder="Number of Seats" min="1" required>
+      <button type="submit">Confirm Booking</button>
+    </form>
+
+    <p id="bookingMessage"></p>
+  </div>
+
+  <script>
+    const trainId = new URLSearchParams(window.location.search).get('trainId');
+    const trainInfoDiv = document.getElementById('trainInfo');
+
+    async function loadTrain() {
+      const res = await fetch(`/api/trains/${trainId}`);
+      const train = await res.json();
+      trainInfoDiv.innerHTML = `
+        <strong>${train.trainName} (${train.trainNumber})</strong><br>
+        ${train.from} → ${train.to}<br>
+        Departure: ${train.departureTime}, Arrival: ${train.arrivalTime}
+        <hr/>
+      `;
+    }
+
+    document.getElementById('bookingForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const booking = {
+        trainId,
+        date: document.getElementById('travelDate').value,
+        classType: document.getElementById('classType').value,
+        seats: document.getElementById('seats').value
+      };
+
+      const res = await fetch('/api/bookings', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(booking)
+      });
+
+      const result = await res.json();
+      document.getElementById('bookingMessage').innerText = 'Booking successful!';
+      document.getElementById('bookingForm').reset();
+    });
+
+    loadTrain();
+  </script>
+</body>
+</html>

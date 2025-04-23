@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel - Manage Trains</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page-container">
+    <h2>🛤️ Admin - Manage Trains</h2>
+
+    <h3>Add New Train</h3>
+    <form id="addTrainForm">
+      <input type="text" id="trainName" placeholder="Train Name" required>
+      <input type="text" id="trainNumber" placeholder="Train Number" required>
+      <input type="text" id="from" placeholder="From Station" required>
+      <input type="text" id="to" placeholder="To Station" required>
+      <input type="time" id="departureTime" required>
+      <input type="time" id="arrivalTime" required>
+      <button type="submit">Add Train</button>
+    </form>
+
+    <div id="trainMessage"></div>
+
+    <h3>Available Trains</h3>
+    <div id="trainList"></div>
+
+    <h3>All Bookings</h3>
+    <div id="adminBookings"></div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
