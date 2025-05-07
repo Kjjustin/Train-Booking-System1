@@ -40,3 +40,4 @@ document.getElementById('bookForm').addEventListener('submit', async (e) => {
     alert(`Ticket Booked Successfully! Booking ID: ${data._id}`);
   }
   
+  

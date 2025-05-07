@@ -7,7 +7,8 @@ const cors = require('cors');
 const app = express();
 
 // Connect to MongoDB
-mongoose.connect('mongodb://127.0.0.1:27017/trainDB', {
+ mongoose.connect('mongodb+srv://k_j_justin:12345@cluster0.kx0aczh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0', {
+
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected'))

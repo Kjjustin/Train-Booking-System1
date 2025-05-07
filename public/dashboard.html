@@ -6,34 +6,48 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="dashboard-container">
-    <header>
-      <h1>🚆 Train Reservation Dashboard</h1>
-      
-    </header>
+  <nav class="navbar">
+    <ul class="navbar-menu">
+        <li><a href="dashboard.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+</nav>
+  <!-- Background video -->
 
-    <div class="cards">
-      <div class="card" onclick="location.href='book.html'">
-        <h3>🎫 Book Ticket</h3>
-        <p>Search trains and book your seat</p>
-      </div>
-      <div class="card" onclick="location.href='bookings.html'">
-        <h3>📃 My Bookings</h3>
-        <p>View or cancel your tickets</p>
-      </div>
-      <div class="card" onclick="location.href='trains.html'">
-        <h3>🚉 Available Trains</h3>
-        <p>See current train schedules</p>
-      </div>
-      <div class="card" onclick="location.href='admin.html'">
-        <h3>🛠 Admin Panel</h3>
-        <p>Manage trains and bookings</p>
-        
-      </div>
+  <video autoplay muted loop playsinline id="bg-video">
+    <source src="video/856360-hd_1920_1080_30fps.mp4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
+  <!-- Dashboard content -->
+  <div class="main-container">
+    <div class="dashboard-container">
+      <header>
+        <h1>Train Reservation Dashboard</h1>
+      </header>
+
+      <div class="cards">
+        <div class="card" onclick="location.href='book.html'">
+          <h3>🎫 Book Ticket</h3>
+          <p>Search trains and book your seat</p>
+        </div>
+        <div class="card" onclick="location.href='bookings.html'">
+          <h3>📃 My Bookings</h3>
+          <p>View or cancel your tickets</p>
+        </div>
+        <div class="card" onclick="location.href='trains.html'">
+          <h3>🚉 Available Trains</h3>
+          <p>See current train schedules</p>
+        </div>
+        <div class="card" onclick="location.href='admin.html'">
+          <h3>🛠 Admin Panel</h3>
+          <p>Manage trains and bookings</p>
+        </div>
+      </div>
+      <br>
+      <button id="logoutBtn">Logout</button>
     </div>
-    <br>
-    <button id="logoutBtn">Logout</button>
   </div>
 
   <script src="dashboard.js"></script>
