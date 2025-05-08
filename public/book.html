@@ -2,10 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Book Train Tickets</title>
+  <title>Book Train Ticket</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <style>
+    body{
+      background-image: url('images/photo-1592844002373-a55ecd7af140.jpeg');
+    }
+  </style>
   <div class="page-container">
     <h2>🎟️ Book Ticket</h2>
     <div id="trainInfo"></div>
@@ -28,7 +33,7 @@
   <script>
     const trainId = new URLSearchParams(window.location.search).get('trainId');
     const trainInfoDiv = document.getElementById('trainInfo');
-
+  
     async function loadTrain() {
       const res = await fetch(`/api/trains/${trainId}`);
       const train = await res.json();
@@ -39,30 +44,38 @@
         <hr/>
       `;
     }
-
+  
+    // Set min date (today) and max date (1 month from today)
+    const today = new Date();
+    const oneMonthLater = new Date();
+    oneMonthLater.setMonth(today.getMonth() + 1);
+  
+    const formatDate = (date) => date.toISOString().split('T')[0];
+  
+    document.getElementById('travelDate').setAttribute('min', formatDate(today));
+    document.getElementById('travelDate').setAttribute('max', formatDate(oneMonthLater));
+  
     document.getElementById('bookingForm').addEventListener('submit', async (e) => {
       e.preventDefault();
-
+  
       const booking = {
         trainId,
         date: document.getElementById('travelDate').value,
         classType: document.getElementById('classType').value,
         seats: document.getElementById('seats').value
       };
-
+  
       const res = await fetch('/api/bookings', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(booking)
       });
-
+  
       const result = await res.json();
       document.getElementById('bookingMessage').innerText = 'Booking successful!';
       document.getElementById('bookingForm').reset();
     });
-
+  
     loadTrain();
   </script>
-</body>
-</html>
-<!-- css -->
+  

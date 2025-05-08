@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      padding-top: 70px; /* Added padding to offset fixed navbar */
+    }
+
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background: white;
+      display: flex;
+      justify-content: center;
+      padding: 14px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      z-index: 1000;
+    }
+
+    .navbar a {
+      text-decoration: none;
+      color: #333;
+      margin: 0 20px;
+      font-weight: 500;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    .navbar a:hover {
+      color: #007bff;
+      transform: scale(1.1);
+    }
+
+    .top-section {
+      background-color: #3b7f99;
+      color: white;
+      padding: 80px 20px 40px;
+      text-align: center;
+    }
+
+    .top-section h2 {
+      margin-bottom: 40px;
+      font-size: 32px;
+    }
+
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      max-width: 250px;
+    }
+
+    .feature i {
+      font-size: 40px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .image-section {
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .image-section img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .bottom-section {
+      background-color: #ffdd57;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    .bottom-section h2 {
+      margin-bottom: 40px;
+    }
+
+    .bottom-features {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+    }
+
+    .bottom-feature {
+      max-width: 250px;
+    }
+
+    .bottom-feature i {
+      font-size: 36px;
+      margin-bottom: 10px;
+      display: block;
+    
+    }.image-section {
+  text-align: center;
+  background-color: #f0f0f0;
+  min-height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+}
+
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <a href="dashboard.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact Us</a>
+  </div>
+
+  <div class="top-section">
+    <h2>Our Commitment to Train Travelers</h2>
+    <div class="features">
+      <div class="feature">
+        <i>🚄</i>
+        <h4>Speed</h4>
+        <p>Quick and efficient booking with real-time train data and availability.</p>
+      </div>
+      <div class="feature">
+        <i>🔒</i>
+        <h4>Security</h4>
+        <p>All ticket transactions are secured with encryption and payment safety protocols.</p>
+      </div>
+      <div class="feature">
+        <i>🕒</i>
+        <h4>Reliability</h4>
+        <p>We keep your travel on schedule with accurate train status and live updates.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="image-section">
+    <img src="images/train2.jpg" alt="Train travel" />
+  </div>
+  
+  <div class="bottom-section">
+    <h2>What Makes Us Different</h2>
+    <div class="bottom-features">
+      <div class="bottom-feature">
+        <i>📅</i>
+        <h4>Easy Scheduling</h4>
+        <p>Search and filter train routes based on date, time, and class preferences.</p>
+      </div>
+      <div class="bottom-feature">
+        <i>📲</i>
+        <h4>Mobile Booking</h4>
+        <p>Book tickets anytime from your smartphone using our responsive interface.</p>
+      </div>
+      <div class="bottom-feature">
+        <i>🙋</i>
+        <h4>Support</h4>
+        <p>Our team is here to help with cancellations, refunds, or any travel queries.</p>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
