@@ -91,6 +91,8 @@ A full-stack web application developed using the **MERN stack** (MongoDB, Expres
    MONGO_URI=your_mongodb_connection_string
    PORT=5000
    ```
+- Use `mongodb://127.0.0.1:27017/trainDB` to connect locally via MongoDB Compass.  
+- Use `mongodb+srv://k_j_justin:12345@cluster0.kx0aczh.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0` for live deployment via MongoDB Atlas.
 
 5. **Run the application**
 
